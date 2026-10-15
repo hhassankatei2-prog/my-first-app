@@ -1,0 +1,480 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+:root {
+  --hero-gradient: linear-gradient(
+    135deg,
+    rgb(13, 27, 62) 0%,
+    rgb(26, 58, 110) 50%,
+    rgb(13, 27, 62) 100%
+  );
+  --pattern-opacity: 0.1;
+  --pattern-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M0 40h20M60 40h20M40 0v20M40 60v20' stroke='%2300bfff' stroke-width='1'/%3E%3Ccircle cx='40' cy='40' r='4' fill='%2300bfff'/%3E%3Ccircle cx='20' cy='40' r='2' fill='%2300bfff'/%3E%3Ccircle cx='60' cy='40' r='2' fill='%2300bfff'/%3E%3Ccircle cx='40' cy='20' r='2' fill='%2300bfff'/%3E%3Ccircle cx='40' cy='60' r='2' fill='%2300bfff'/%3E%3C/svg%3E");
+
+  --color-primary-dark: #071938;
+  --color-primary: #16305c;
+  --color-primary-light: #1e3a6d;
+
+  --color-accent: #4caf50;
+  --color-accent1: #cdeccf;
+  --color-accent-hover: #43a047;
+  --color-accent-hover2: #265e28;
+  --color-select-hover: #5f6368;
+  --color-error: #ff0000;
+  --color-bg-light: #f3f4f9;
+  --color-bg-white: #ffffff;
+
+  --color-text-dark: #1a1a2e;
+  --color-text-body: #5f6368;
+  --color-text-light: #e8eaf0;
+  --color-text-muted: #9aa0a6;
+  --color-text-muted1: #d5dadf;
+  --color-text-muted2: #dde2e7;
+  --color-text-muted3: #b6bcc2;
+  --color-Ptag: #000000;
+
+  --color-border: #e0e3e8;
+  --radius-lg: 4px;
+  --radius-lg2: 3px;
+  --radius-lg3: 10px;
+  --font-primary: "Poppins", sans-serif;
+}
+
+:root[data-theme="dark"] {
+  --hero-gradient: linear-gradient(
+    135deg,
+    rgb(2, 8, 23) 0%,
+    rgb(15, 31, 61) 50%,
+    rgb(2, 8, 23) 100%
+  );
+  --pattern-opacity: 0.15;
+  --pattern-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M0 40h20M60 40h20M40 0v20M40 60v20' stroke='%2338bdf8' stroke-width='1'/%3E%3Ccircle cx='40' cy='40' r='4' fill='%2338bdf8'/%3E%3Ccircle cx='20' cy='40' r='2' fill='%2338bdf8'/%3E%3Ccircle cx='60' cy='40' r='2' fill='%2338bdf8'/%3E%3Ccircle cx='40' cy='20' r='2' fill='%2338bdf8'/%3E%3Ccircle cx='40' cy='60' r='2' fill='%2338bdf8'/%3E%3C/svg%3E");
+
+  --color-bg-light2: #1f2937;
+  --color-primary-dark: #020817;
+  --color-primary: #0f1f3d;
+  --color-primary-light: #1f2937;
+  --color-bg-light: #111827;
+  --color-bg-white: #1f2937;
+  --color-text-dark: #f3f4f6;
+  --color-text-body: #cbd5e1;
+  --color-text-light: #f8fafc;
+  --color-text-muted: #94a3b8;
+  --color-text-muted1: #64748b;
+  --color-text-muted2: #475569;
+  --color-text-muted3: #64748b;
+  --color-Ptag: #ffffff;
+  --color-border: #334155;
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--color-bg-light);
+  color: var(--color-text-dark);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--color-primary-dark);
+  color: var(--color-text-light);
+  height: 60px;
+  font-size: 13px;
+  font-weight: 500;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 0 145px !important;
+}
+.h1 {
+  font-size: 20px !important;
+  font-weight: bold !important;
+  margin-bottom: 0px !important;
+}
+.header__nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.nav-toggle {
+  display: none;
+  border: 0;
+  background: transparent;
+  color: var(--color-text-light);
+  cursor: pointer;
+}
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border: 0;
+  background: transparent;
+  color: var(--color-text-light);
+  cursor: pointer;
+}
+.header__nav a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.header__nav a.active {
+  color: #49d950;
+}
+
+@media (max-width: 1200px) {
+  .header__nav {
+    gap: 15px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .header__nav {
+    gap: 10px;
+  }
+
+  .header__nav a {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    height: auto;
+    min-height: 60px;
+  }
+
+  .header__container {
+    position: relative;
+    min-height: 60px;
+    flex-wrap: wrap;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+  }
+
+  .header__nav {
+    display: none;
+    flex-basis: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 10px 0 14px;
+  }
+
+  .header__nav.is-open {
+    display: flex;
+  }
+
+  .header__nav a {
+    padding: 10px 4px;
+    font-size: 13px;
+  }
+}
+.accordion {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.accordion-item {
+  width: 700px;
+  border-radius: var(--radius-lg2);
+  margin-bottom: 12px;
+  border: 1px solid var(--color-border);
+  transition: background-color 0.3s ease;
+}
+
+.accordion-button {
+  width: 100%;
+  height: 50px;
+  padding: 15px;
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.accordion-button:active {
+  background-color: var(--color-select-hover);
+}
+.gaq {
+  background-color: var(--color-bg-light);
+  text-align: center;
+  padding: 50px 20px;
+}
+.gaq-content {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+.gaq-content h2 {
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+}
+.gaq-content p {
+  margin-bottom: 20px;
+  font-size: 0.8rem;
+  color: var(--color-text-body);
+  margin-bottom: 40px;
+}
+
+/* .CONTACT-DETAIL {
+  margin-bottom: 18px;
+} */
+/* ==================== LOGIN PAGE ==================== */
+
+.login-hero {
+  background-color: var(--color-primary-light);
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.login-form {
+  background-color: var(--color-bg-white);
+  max-width: 480px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px;
+  border-radius: var(--radius-lg3);
+  border-top: 4px solid var(--color-accent);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.login-form h2 {
+  text-align: center;
+  color: var(--color-text-dark);
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+}
+
+.login-form > p:first-of-type {
+  text-align: center;
+  color: var(--color-text-body);
+  font-size: 0.8rem;
+  /* margin-bottom: 30px; */
+}
+
+.login-form label {
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: var(--color-text-dark);
+  margin-bottom: 8px;
+  margin-top: 15px;
+}
+
+.login-form label[for="password"] {
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+.input-wrapper {
+  position: relative;
+}
+
+.input-icon,
+.toggle-password {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+}
+
+.input-icon {
+  left: 14px;
+}
+
+.toggle-password {
+  right: 14px;
+  cursor: pointer;
+}
+
+.input-wrapper input {
+  width: 100%;
+  height: 44px;
+  padding: 0 40px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg3);
+  outline: none;
+  font-size: 0.8rem;
+  transition: border-color 0.3s ease;
+}
+
+.input-wrapper input:focus {
+  border-color: var(--color-accent);
+}
+
+.login-form input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+  margin-top: 16px;
+  vertical-align: middle;
+  cursor: pointer; /* بتغيّر شكل الماوس لما يمرق فوق العنصر — من سهم عادي لإيد بإصبع*/
+  accent-color: var(--color-text-dark);
+  display: inline-block;
+}
+
+.login-form label[for="checkbox"] {
+  display: inline-block;
+  font-weight: 400;
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.login-form > button[type="button"]:first-of-type:hover {
+  background-color: var(--color-accent-hover);
+  transform: translateY(-2px);
+}
+
+.login-form > p:nth-of-type(2) {
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 0.7rem;
+  margin: 20px 0 12px;
+}
+
+.social-login {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+.social-login button {
+  flex: 1 1 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: var(--color-bg-white);
+  border: 1px solid var(--color-border);
+  padding: 12px;
+  border-radius: var(--radius-lg2);
+  font-size: 0.8rem;
+  color: var(--color-text-dark);
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.social-login button:hover {
+  background-color: var(--color-bg-light);
+  transform: translateY(-2px);
+}
+
+.social-login .fa-google {
+  color: #ea4335;
+}
+
+.social-login .fa-facebook {
+  color: #1877f2;
+}
+
+.login-form > p:last-of-type {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--color-text-body);
+  margin-top: 20px;
+}
+/*آخر .login-form،جوا  p 
+وبعدين أي a جواتها"
+(p مش شرط تكون ابن مباشر، ممكن تكون جوا عنصر تاني جوا الـ ).
+<a> هاد لأنو الـ 
+(رابط Sign up) <p>هو جوا الـ 
+مباشرة أصلاً، فقدرنا نستهدفه.*/
+.login-form > p:last-of-type a {
+  color: var(--color-accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.login-hero > a {
+  display: inline-block;
+  margin-top: 30px;
+  /* color: var(--color-text-light); */
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: underline;
+}
+.login-form a[href="#"] {
+  color: var(--color-accent);
+  text-decoration: none;
+  font-size: 0.8rem;
+  /* float: right; */
+  font-weight: 800;
+}
+#password2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#checkbox2 {
+  display: flex;
+  align-items: center;
+}
+#login {
+  color: #49d950;
+  border: 1px solid #49d950;
+  padding: 3px 14px;
+  border-radius: var(--radius-lg2);
+  transition: background-color 0.2s ease;
+}
+#login:hover {
+  background-color: #49d950;
+  color: #ffffff;
+}
+
+/* >مشان استهدف الابن المباشر */
+/*هيك احنا قدرنا نستهدف بس زر SIGN IN
+   (لأنو هو أول زر بالفورم)،
+    من دون ما نأثر على زرار Google/Facebook*/
+.button1 {
+  width: 100%;
+  background-color: var(--color-accent);
+  color: var(--color-bg-white);
+  border: none;
+  padding: 14px;
+  border-radius: var(--radius-lg3);
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  cursor: pointer; /* بتغيّر شكل الماوس لما يمرق فوق العنصر — من سهم عادي لإيد بإصبع*/
+  margin-top: 24px;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
+}
+.button1:hover {
+  background-color: #7bca7f;
+  transform: translateY(-2px);
+}
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1280px !important;
+    padding-left: 60px !important;
+    padding-right: 60px !important;
+  }
+}
