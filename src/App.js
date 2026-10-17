@@ -4,12 +4,13 @@ import Register from "./pages/Register";
 import Products from "./pages/Products";
 import "./App.css";
 import NotFound from "./pages/not-found";
-import Home from "./pages/Home";
+import BLOG from "./pages/Blog";
 import ProductDetails from "./pages/ProductDetails";
 import { useDispatch, useSelector } from "react-redux";
 import Quiz from "./pages/Quiz";
 import Header from "./pages/Header";
 import Footer from "./pages/Footer";
+// import BLOG from "./pages/BLOG";
 const App = () => {
   const user = useSelector((state) => state.auth.user);
   const dispatch = useDispatch();
@@ -17,7 +18,7 @@ const App = () => {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="home" element={<Home />} />
+        <Route path="/BLOG" element={<BLOG />} />
         <Route path="login" element={<LoginForm />} />
         <Route path="register" element={<Register />} />
         <Route path="products" element={<Products />} />

@@ -14,7 +14,7 @@ import environment from "./environment";
 
 i18next.use(initReactI18next).init({
   interpolation: { escapeValue: false },
-  lng: localStorage.getItem(environment.lang) || "ar",
+  lng: localStorage.getItem(environment.lang) || "en",
   resources,
 });
 

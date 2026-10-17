@@ -36,7 +36,7 @@ const [isNavOpen, setIsNavOpen] = useState(false);
           </button>
           <nav className={`header__nav ${isNavOpen ? "is-open" : ""}`}>
             <NavLink
-              to="home"
+              to="/"
               className={({ isActive }) => (isActive ? "active" : "")}
             >
               {t("navHome")}
@@ -65,7 +65,7 @@ const [isNavOpen, setIsNavOpen] = useState(false);
             >
               {t("navServices")}
             </NavLink>
-            <NavLink to="/b">{t("navBlog")}</NavLink>
+            <NavLink to="/BLOG">{t("navBlog")}</NavLink>
             <NavLink to="/r">{t("navResources")}</NavLink>
             <NavLink to="quiz">{t("navQuiz")}</NavLink>
             <NavLink to="/c">{t("navContact")}</NavLink>
