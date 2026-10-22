@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const CardStyles = styled.div`
   border-radius: 20px;
   height: 100%;
-  /* margin: 10px 0px; */
+  margin: 10px 0px;
   .hoverCard {
     height: 100%;
     border-radius: 14px;
@@ -32,12 +32,6 @@ export const CardStyles = styled.div`
     position: absolute;
     top: 12px;
     left: 12px;
-    background-color: var(--color-accent);
-    color: white;
-    font-size: 0.7rem;
-    font-weight: 700;
-    padding: 4px 12px;
-    border-radius: 999px;
   }
   .writing-placeholder {
     height: calc(100% - ${(props) => props.height || "160px"});

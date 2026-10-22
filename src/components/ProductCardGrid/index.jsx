@@ -6,6 +6,7 @@ import CustomButton from "../common/Button";
 import { CiShoppingCart } from "react-icons/ci";
 import { Link } from "react-router-dom";
 import { Package } from "lucide-react";
+import BADGE from "../badge";
 const ProductCardGrid = (props) => {
   const { product, onAddToCart,compact  } = props;
   //Math.round(4.3) = 4 (تقريب لأقرب رقم صحيح)
@@ -16,11 +17,13 @@ const ProductCardGrid = (props) => {
 <CardStyles cardColor={product?.cardColor} height={props?.height}>
   <div className=" hoverCard" >
 <div className="image-placeholder">
-   {!compact && (
+<BADGE label={product.badge} />
+   {/* {!compact && (
     <>
-    {product?.badge && <span className="badge">{product.badge}</span>}</>
+    {product?.badge && <span className="badge">{product.badge}</span>}
+    </>
     )}
-    
+     */}
      <Package size={64}  />
 </div>
 <div  className="writing-placeholder">
